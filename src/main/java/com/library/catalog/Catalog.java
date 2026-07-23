@@ -6,9 +6,6 @@ import com.library.model.BookCopy;
 
 import java.util.*;
 
-/**
- * Manages the library catalog and book inventory.
- */
 public class Catalog {
 
     private final Map<String, Book> books;
@@ -21,9 +18,6 @@ public class Catalog {
         copyIndex = new HashMap<>();
     }
 
-    /**
-     * Adds a book with the specified number of copies.
-     */
     public void addBook(Book book, int numberOfCopies) {
 
         books.putIfAbsent(book.getIsbn(), book);
@@ -44,9 +38,6 @@ public class Catalog {
         }
     }
 
-    /**
-     * Finds a book using ISBN.
-     */
     public Book getBook(String isbn) {
 
         Book book = books.get(isbn);
@@ -58,9 +49,6 @@ public class Catalog {
         return book;
     }
 
-    /**
-     * Returns all copies of a book.
-     */
     public List<BookCopy> getCopies(String isbn) {
 
         getBook(isbn);
@@ -68,9 +56,6 @@ public class Catalog {
         return bookCopies.get(isbn);
     }
 
-    /**
-     * Finds the first available copy.
-     */
     public BookCopy getAvailableCopy(String isbn) {
 
         List<BookCopy> copies = getCopies(isbn);
@@ -85,9 +70,6 @@ public class Catalog {
         return null;
     }
 
-    /**
-     * Finds a copy using copy ID.
-     */
     public BookCopy getCopyById(String copyId) {
 
         BookCopy copy = copyIndex.get(copyId);
@@ -99,9 +81,6 @@ public class Catalog {
         return copy;
     }
 
-    /**
-     * Searches books by title.
-     */
     public List<Book> searchByTitle(String keyword) {
 
         List<Book> result = new ArrayList<>();
@@ -118,9 +97,6 @@ public class Catalog {
         return result;
     }
 
-    /**
-     * Removes a copy from inventory.
-     */
     public void removeCopy(String copyId) {
 
         BookCopy copy = getCopyById(copyId);
@@ -133,9 +109,6 @@ public class Catalog {
         copyIndex.remove(copyId);
     }
 
-    /**
-     * Returns all books.
-     */
     public Collection<Book> getAllBooks() {
         return books.values();
     }

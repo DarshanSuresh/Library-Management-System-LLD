@@ -1,9 +1,5 @@
 package com.library.policy;
 
-/**
- * Default implementation of the library lending policy.
- * Members can borrow up to 5 books for 14 days.
- */
 public class DefaultLendingPolicy implements LendingPolicy {
 
     private static final int MAXIMUM_BOOKS = 5;

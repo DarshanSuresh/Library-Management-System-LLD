@@ -2,10 +2,6 @@ package com.library.model;
 
 import java.util.Objects;
 
-/**
- * Represents a book in the library catalog.
- * This class stores only the book's metadata.
- */
 public class Book {
 
     private final String isbn;
@@ -13,14 +9,6 @@ public class Book {
     private final String author;
     private final int publicationYear;
 
-    /**
-     * Creates a new Book.
-     *
-     * @param isbn ISBN number
-     * @param title Book title
-     * @param author Author name
-     * @param publicationYear Year of publication
-     */
     public Book(String isbn, String title, String author, int publicationYear) {
 
         this.isbn = Objects.requireNonNull(isbn, "ISBN cannot be null");

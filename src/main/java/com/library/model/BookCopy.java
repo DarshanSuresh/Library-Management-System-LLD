@@ -1,32 +1,17 @@
 package com.library.model;
 
-/**
- * Represents a physical copy of a book.
- * Each copy has a unique copy ID and its own availability status.
- */
 public class BookCopy {
 
     private final String copyId;
     private final Book book;
     private BookStatus status;
 
-    /**
-     * Creates a new physical book copy.
-     *
-     * @param copyId Unique copy identifier
-     * @param book Associated book
-     */
     public BookCopy(String copyId, Book book) {
         this.copyId = copyId;
         this.book = book;
         this.status = BookStatus.AVAILABLE;
     }
 
-    /**
-     * Attempts to borrow this copy.
-     *
-     * @return true if borrowing succeeds, false otherwise
-     */
     public synchronized boolean borrow() {
 
         if (status != BookStatus.AVAILABLE) {
@@ -37,9 +22,6 @@ public class BookCopy {
         return true;
     }
 
-    /**
-     * Returns the book copy.
-     */
     public synchronized void returnBook() {
 
         if (status == BookStatus.BORROWED) {
@@ -47,9 +29,6 @@ public class BookCopy {
         }
     }
 
-    /**
-     * Marks the copy as lost.
-     */
     public synchronized void markLost() {
         status = BookStatus.LOST;
     }

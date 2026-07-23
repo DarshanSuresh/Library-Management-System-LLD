@@ -15,9 +15,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Main service class that manages all library operations.
- */
 public class LibraryService {
 
     private final Catalog catalog;
@@ -30,25 +27,16 @@ public class LibraryService {
         this.members = new HashMap<>();
     }
 
-    /**
-     * Registers a new member.
-     */
     public void registerMember(Member member) {
 
         members.put(member.getMemberId(), member);
     }
 
-    /**
-     * Adds a book with copies.
-     */
     public void addBook(Book book, int copies) {
 
         catalog.addBook(book, copies);
     }
 
-    /**
-     * Borrow a book using ISBN.
-     */
     public Loan borrowBook(String memberId, String isbn) {
 
         Member member = members.get(memberId);
@@ -89,9 +77,6 @@ public class LibraryService {
         return loan;
     }
 
-    /**
-     * Returns a borrowed book.
-     */
     public void returnBook(String memberId, String copyId) {
 
         Member member = members.get(memberId);
@@ -113,25 +98,16 @@ public class LibraryService {
         member.removeLoan(loan);
     }
 
-    /**
-     * Search books using title.
-     */
     public List<Book> searchByTitle(String title) {
 
         return catalog.searchByTitle(title);
     }
 
-    /**
-     * Returns the catalog.
-     */
     public Catalog getCatalog() {
 
         return catalog;
     }
 
-    /**
-     * Returns all registered members.
-     */
     public Map<String, Member> getMembers() {
 
         return members;

@@ -10,10 +10,8 @@ public class LibraryDemo {
 
     public static void main(String[] args) {
 
-        // Create Library
         LibraryService library = new LibraryService(new DefaultLendingPolicy());
 
-        // Add Books
         library.addBook(
                 new Book(
                         "9780132350884",
@@ -32,7 +30,6 @@ public class LibraryDemo {
                 2
         );
 
-        // Register Members
         library.registerMember(
                 new Member(
                         "M001",
@@ -55,7 +52,6 @@ public class LibraryDemo {
 
         try {
 
-            // Borrow Book
             Loan loan1 = library.borrowBook(
                     "M001",
                     "9780132350884"
@@ -64,7 +60,6 @@ public class LibraryDemo {
             System.out.println("Book Borrowed Successfully!");
             System.out.println(loan1);
 
-            // Borrow Another Book
             Loan loan2 = library.borrowBook(
                     "M002",
                     "9780134685991"
@@ -73,13 +68,11 @@ public class LibraryDemo {
             System.out.println("\nBook Borrowed Successfully!");
             System.out.println(loan2);
 
-            // Search Books
             System.out.println("\nBooks containing 'Java'");
 
             library.searchByTitle("Java")
                     .forEach(System.out::println);
 
-            // Return Book
             library.returnBook(
                     "M001",
                     loan1.getBookCopy().getCopyId()
