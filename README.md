@@ -1,4 +1,4 @@
-# Library Management System (Low-Level Design)
+# Library Management System (Low-Level Design) 
 
 A Java-based **Library Management System** designed using **Object-Oriented Programming (OOP)** and **Low-Level Design (LLD)** principles. The project models real-world library operations such as book management, member registration, book borrowing, and returning while maintaining clean architecture and separation of responsibilities.
 
